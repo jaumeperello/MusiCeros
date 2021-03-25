@@ -7,24 +7,24 @@ from helpers.filters import command, other_filters, other_filters2
 @Client.on_message(command("start") & other_filters2)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
+        f"""<b>👋🏻 Hii Guys! {message.from_user.first_name}!</b>
 
-I am Calls Music, an open-source bot that lets you play music in your groups.
+Aku Pemutar Musik!, Aku Akan Mutar Musik Di-Grup Kamu!.
 
-Use the buttons below to know more about me.""",
+Apabila Ingin Menggunakan Aku, Masukin Aku Ke Grup Dulu, Sama Assistennya, Kalau Kurang Lengkap Bisa Klik Dibawah Ini Kotak-Kotak!.""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⚒ Source code", url="https://github.com/callsmusic/callsmusic"
+                        "🐣 Owner Music!", url="https://t.me/afterdaytoxic"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/callsmusicchat"
+                        "💬 Group", url="https://t.me/humangabutguys"
                     ),
                     InlineKeyboardButton(
-                        "Channel 🔈", url="https://t.me/callsmusic"
+                        "Channel 🔈", url="https://t.me/captionanakmuda"
                     )
                 ]
             ]
