@@ -14,9 +14,9 @@ from helpers.decorators import errors, authorized_users_only
 @authorized_users_only
 async def pause(_, message: Message):
     if callsmusic.pause(message.chat.id):
-        await message.reply_text("⏸ Paused")
+        await message.reply_text("⏸ Lagu Kamu Sudah Di-Paused!")
     else:
-        await message.reply_text("❗️ Nothing is playing")
+        await message.reply_text("❗️ Tidak Bisa Dipaksakan Play!")
 
 
 @Client.on_message(command(["resume", "r"]))
@@ -24,9 +24,9 @@ async def pause(_, message: Message):
 @authorized_users_only
 async def resume(_, message: Message):
     if callsmusic.resume(message.chat.id):
-        await message.reply_text("🎧 Resumed")
+        await message.reply_text("🎧 Lagu Kamu Sudah Di-Mulai!")
     else:
-        await message.reply_text("❗️ Nothing is paused")
+        await message.reply_text("❗️ Tidak Bisa Dipaksakan Pause!")
 
 
 @Client.on_message(command(["stop", "s"]))
@@ -34,7 +34,7 @@ async def resume(_, message: Message):
 @authorized_users_only
 async def stop(_, message: Message):
     if message.chat.id not in callsmusic.active_chats:
-        await message.reply_text("❗️ Nothing is playing")
+        await message.reply_text("❗️ Tidak Bisa Dipaksakan Berhenti!")
     else:
         try:
             queues.clear(message.chat.id)
@@ -42,7 +42,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.stop(message.chat.id)
-        await message.reply_text("✅ Cleared the queue and left the call")
+        await message.reply_text("✅ Lagu Kamu Sudah Berhenti/Keluar Dari Voice Chat!")
 
 
 @Client.on_message(command(["skip", "f"]))
@@ -50,7 +50,7 @@ async def stop(_, message: Message):
 @authorized_users_only
 async def skip(_, message: Message):
     if message.chat.id not in callsmusic.active_chats:
-        await message.reply_text("❗️ Nothing is playing")
+        await message.reply_text("❗️ Tidak Bisa Dipaksakan Lanjut/Skip Lagu Berikutnya!")
     else:
         queues.task_done(message.chat.id)
 
@@ -61,7 +61,7 @@ async def skip(_, message: Message):
                 message.chat.id, queues.get(message.chat.id)["file"]
             )
 
-        await message.reply_text("Skipped.")
+        await message.reply_text("Lagu Kamu Sudah Dinext, Sekarang Lagu Berikutnya!.")
 
 
 @Client.on_message(command(["mute", "m"]))
@@ -71,11 +71,11 @@ async def mute(_, message: Message):
     result = callsmusic.mute(message.chat.id)
 
     if result == 0:
-        await message.reply_text("🔇 Muted")
+        await message.reply_text("🔇 Maaf Dimute!")
     elif result == 1:
-        await message.reply_text("🔇 Already muted")
+        await message.reply_text("🔇 All-Ready Muted!")
     elif result == 2:
-        await message.reply_text("❗️ Not in voice chat")
+        await message.reply_text("❗️ Tidak Ada Di Voice Chat!")
 
 
 @Client.on_message(command(["unmute", "u"]))
@@ -85,8 +85,8 @@ async def unmute(_, message: Message):
     result = callsmusic.unmute(message.chat.id)
 
     if result == 0:
-        await message.reply_text("🔈 Unmuted")
+        await message.reply_text("🔈 Oke Tidak Dimute!")
     elif result == 1:
-        await message.reply_text("🔈 Already unmuted")
+        await message.reply_text("🔈 All-Ready Unmuted!")
     elif result == 2:
-        await message.reply_text("❗️ Not in voice chat")
+        await message.reply_text("❗️ Tidak Ada Di Voice Chat!")
