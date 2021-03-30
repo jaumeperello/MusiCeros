@@ -71,4 +71,4 @@ Copy `example.env` to `.env` and fill it with your credentials.
 ### GNU Affero General Public License v3.0
 [Read more](http://www.gnu.org/licenses/#AGPL)
 
-```Thanks for asking, and made this bot possible```
+Thanks for asking, and make this bot possible
