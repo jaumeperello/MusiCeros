@@ -1,4 +1,5 @@
-# Calls Music — The first open-source PyTgCalls based project
+# MusiCeros — Open-source PyTgCalls based project based on Calls Music
+![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/etc/repo.png?raw=true)
 
 ## Requirements
 
