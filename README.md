@@ -64,7 +64,7 @@ Copy `example.env` to `.env` and fill it with your credentials.
 | Command                        | Description                      |
 | ------------------------------ | -------------------------------- |
 | /global_admin @usertag         | user is added as bot global admin|
-| /remove__global_admin @usertag | remove the user as global admin  |
+| /remove_global_admin @usertag | remove the user as global admin  |
 
 ## License
 
