@@ -1,5 +1,10 @@
 .idea/
+.vscode/
 venv/
+myvenv/
+.directory
+group_call.log
+unknown_errors.txt
 
 raw_files/
 downloads/
@@ -8,5 +13,5 @@ __pycache__/
 *.session
 *.session-journal
 *.log
-
 .env
+
