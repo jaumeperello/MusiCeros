@@ -14,14 +14,12 @@ ydl_opts = {
 ydl = YoutubeDL(ydl_opts)
 
 
-def download(url: str) -> str:
-    info = ydl.extract_info(url, False)
-    duration = round(info["duration"] / 60)
+def download(song):
+    duration = round(song["duration"] / 60)
 
     if duration > DURATION_LIMIT:
         raise DurationLimitError(
             f"Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {duration} minute(s)"
         )
-
-    ydl.download([url])
-    return path.join("downloads", f"{info['id']}.{info['ext']}")
+    ydl.download([song['webpage_url']])
+    return path.join("downloads", f"{song['id']}.{song['ext']}")

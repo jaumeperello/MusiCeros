@@ -1,5 +1,6 @@
 from os import path
 import asyncio
+# import os
 
 from helpers.errors import FFmpegReturnCodeError
 
@@ -26,4 +27,5 @@ async def convert(file_path: str) -> str:
     if proc.returncode != 0:
         raise FFmpegReturnCodeError("FFmpeg did not return 0")
 
+    # os.remove(file_path)
     return out

@@ -38,5 +38,24 @@ def clear(chat_id: int):
         if queues[chat_id].empty():
             raise Empty
         else:
-            queues[chat_id].queue = []
+            for _ in range(queues[chat_id].qsize()):
+                # Depending on your program, you may want to
+                # catch QueueEmpty
+                queues[chat_id].get_nowait()
+                queues[chat_id].task_done()
     raise Empty
+
+
+def qlist(chat_id: int):
+    if chat_id in queues:
+        if queues[chat_id].empty():
+            return ""
+        else:
+            tlist = ""
+            num = 1
+            for song in list(queues[chat_id]._queue):
+                tlist += f' **{num}.** __{song["title"]}__ (request: {song["requested_by"]})\n'
+                num += 1
+            return tlist
+    else:
+        return ""

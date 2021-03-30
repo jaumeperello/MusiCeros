@@ -3,6 +3,7 @@
 ## Requirements
 
 - FFmpeg
+- Mysql
 - Python 3.7+
 
 ## Deployment
@@ -17,7 +18,9 @@ Copy `example.env` to `.env` and fill it with your credentials.
    ```bash
    pip install -U -r requirements.txt
    ```
-2. Run:
+2. Create Database as ```MusiCeros.sql``` shows
+3. copy ```example.env``` to ```.env``` and edit it with your data
+4. Run:
    ```bash
    python main.py
    ```
@@ -33,9 +36,34 @@ Copy `example.env` to `.env` and fill it with your credentials.
    docker run --env-file .env musicplayer
    ```
 
-### Heroku
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/gataunama/callsmusic)
+## Commads
+### Users Commands
+| Command | Description                                          |
+| ------- | ---------------------------------------------------- |
+| /play   | play the replied audio file or YouTube video         |
+| /pause  | pause the audio stream                               |
+| /resume | resume the audio stream                              |
+| /skip   | skip the current audio stream                        |
+| /mute   | mute the userbot                                     |
+| /unmute | unmute the userbot                                   |
+| /stop   | clear the queue and remove the userbot from the call |
+| /list   | shows playlist queue                                 |
+### Administrators Commands
+| Command       | Description                                   |
+| ------------- | --------------------------------------------- |
+| /allow_all    | all users can use user commands in the group  |
+| /allow_admins | telegram group admins can use user commands   |
+| /disallow     | only bot admins can use user command          |
+### Global Administrators Commands
+| Command                | Description                             |
+| ---------------------- | --------------------------------------- |
+| /admin @usertag        | user is added as bot admin on the group |
+| /remove_admin @usertag | remove the user from the bot group admin|
+### SuperUser Commads
+| Command                        | Description                      |
+| ------------------------------ | -------------------------------- |
+| /global_admin @usertag         | user is added as bot global admin|
+| /remove__global_admin @usertag | remove the user as global admin  |
 
 ## License
 

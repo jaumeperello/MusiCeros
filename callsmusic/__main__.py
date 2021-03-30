@@ -13,7 +13,7 @@ async def pl(__, _):
 
 
 @client.on_message(filters.me & filters.command("stop"))
-async def pl(__, _):
+async def pl2(__, _):
     await group_call_instances.stop(_.chat.id)
 
 client.run()

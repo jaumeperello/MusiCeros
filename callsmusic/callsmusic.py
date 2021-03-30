@@ -1,28 +1,56 @@
 from typing import Dict
 
 from pytgcalls import GroupCall
-
+from pyrogram import Client as Bot
 from . import queues
 from . import client
+import asyncio
+from helpers.player import play_song
+import logging
+
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 instances: Dict[int, GroupCall] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
+waiting: Dict[int, bool] = {}
+cover_message: Dict[int, int] = {}
+client_bot: Bot = None
+# current_raw: Dict[int, str] = {}
 
 
 def init_instance(chat_id: int):
     if chat_id not in instances:
         instances[chat_id] = GroupCall(client)
+        waiting[chat_id] = False
 
     instance = instances[chat_id]
 
     @instance.on_playout_ended
     async def ___(__, _):
-        queues.task_done(chat_id)
+        if not waiting[chat_id]:
+            waiting[chat_id] = True
+            queues.task_done(chat_id)
+            try:
+                await cover_message[chat_id].delete()
+            except:
+                logging.info('Cover already deleted')
 
-        if queues.is_empty(chat_id):
-            await stop(chat_id)
-        else:
-            instance.input_filename = queues.get(chat_id)["file"]
+            if queues.is_empty(chat_id):
+                await stop(chat_id)
+                m = await client_bot.send_message(chat_id, "Done")
+                waiting[chat_id] = False
+                await asyncio.sleep(3)
+                await m.delete()
+            else:
+                song = queues.get(chat_id)
+                input_filename = None
+                m = await client_bot.send_message(chat_id, "🔄 Processing...")
+                if "file" in song.keys():
+                    input_filename = song["file"]
+                await play_song(client_bot, m, song, song["requested_by"], file=input_filename, force=True)
+                await m.delete()
+                await asyncio.sleep(2)
+                waiting[chat_id] = False
 
 
 def get_instance(chat_id: int) -> GroupCall:

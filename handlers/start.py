@@ -1,30 +1,32 @@
 from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
-from helpers.filters import command, other_filters, other_filters2
+from helpers.filters import command
+from helpers.decorators import authorized_users_only
 
 
-@Client.on_message(command("start") & other_filters2)
+@Client.on_message(command("start"))
+@authorized_users_only
 async def start(_, message: Message):
     await message.reply_text(
-        f"""<b>👋🏻 Hii Guys! {message.from_user.first_name}!</b>
+        f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
 
-Aku Pemutar Musik!, Aku Akan Mutar Musik Di-Grup Kamu!.
+I am Calls Music, an open-source bot that lets you play music in your groups.
 
-Apabila Ingin Menggunakan Aku, Masukin Aku Ke Grup Dulu, Sama Assistennya, Kalau Kurang Lengkap Bisa Klik Dibawah Ini Kotak-Kotak!.""",
+Use the buttons below to know more about me.""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🐣 Owner Music!", url="https://t.me/afterdaytoxic"
+                        "⚒ Source code", url="https://github.com/callsmusic/callsmusic"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/humangabutguys"
+                        "💬 Group", url="https://t.me/callsmusicchat"
                     ),
                     InlineKeyboardButton(
-                        "Channel 🔈", url="https://t.me/captionanakmuda"
+                        "Channel 🔈", url="https://t.me/callsmusic"
                     )
                 ]
             ]
@@ -32,20 +34,20 @@ Apabila Ingin Menggunakan Aku, Masukin Aku Ke Grup Dulu, Sama Assistennya, Kalau
     )
 
 
-@Client.on_message(command("start") & other_filters)
-async def start2(_, message: Message):
-    await message.reply_text(
-        "💁🏻‍♂️ Do you want to search for a YouTube video?",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "✅ Yes", switch_inline_query_current_chat=""
-                    ),
-                    InlineKeyboardButton(
-                        "No ❌", callback_data="close"
-                    )
-                ]
-            ]
-        )
-    )
+# @Client.on_message(command("start") & other_filters)
+# async def start2(_, message: Message):
+#     await message.reply_text(
+#         "💁🏻‍♂️ Do you want to search for a YouTube video?",
+#         reply_markup=InlineKeyboardMarkup(
+#             [
+#                 [
+#                     InlineKeyboardButton(
+#                         "✅ Yes", switch_inline_query_current_chat=""
+#                     ),
+#                     InlineKeyboardButton(
+#                         "No ❌", callback_data="close"
+#                     )
+#                 ]
+#             ]
+#         )
+#     )
