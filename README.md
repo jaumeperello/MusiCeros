@@ -23,7 +23,7 @@ Copy `example.env` to `.env` and fill it with your credentials.
 3. copy ```example.env``` to ```.env``` and edit it with your data
 4. Run:
    ```bash
-   python main.py
+   python MusiCeros_bot.py
    ```
 
 ### Using Docker
