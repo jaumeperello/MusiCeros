@@ -1,6 +1,9 @@
 # MusiCeros — Open-source PyTgCalls based project forked from Calls Music
 ![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/etc/repo.png?raw=true)
 
+## screenshoots
+![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/cover.jpg?raw=true =500x)![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/playlist.jpg?raw=true =500x)![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/search.jpg?raw=true =500x)
+
 ## Requirements
 
 - FFmpeg
