@@ -1,10 +1,9 @@
 # MusiCeros — Open-source PyTgCalls based project forked from Calls Music
-![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/etc/repo.png?raw=true)
+<img src="https://github.com/jaumeperello/MusiCeros/blob/main/etc/repo.png?raw=true" width="620"/>
 
-## screenshoots
-![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/cover.jpg?raw=true | width=200)
-![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/playlist.jpg?raw=true | width=200)
-![alt text](https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/search.jpg?raw=true | width=200)
+## Screenshoots
+<img src="https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/cover.jpg?raw=true" width="200"/>   <img src="https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/search.jpg?raw=true" width="200"/>   <img src="https://github.com/jaumeperello/MusiCeros/blob/main/screenshots/playlist.jpg?raw=true" width="200"/>
+
 
 ## Requirements
 
