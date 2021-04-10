@@ -35,10 +35,10 @@ def authorized_users_only(func: Callable) -> Callable:
         if user_id in SUDO_USERS or await dbhd.get_admin_type(user_id) < AdminType.GROUP.value or await dbhd.get_admin_type(user_id, group_id) == AdminType.GROUP.value:
             return await func(client, message)
 
-        if allowed['all'] == 1:
+        if allowed['all'] == 1 and await dbhd.get_admin_type(user_id) < AdminType.BAN.value and await dbhd.get_admin_type(user_id, group_id) < AdminType.BAN.value:
             return await func(client, message)
 
-        if allowed['admin'] == 1:
+        if allowed['admin'] == 1 and await dbhd.get_admin_type(user_id) < AdminType.BAN.value and await dbhd.get_admin_type(user_id, group_id) < AdminType.BAN.value:
             administrators = await get_administrators(message.chat)
             for administrator in administrators:
                 if administrator == message.from_user.id:

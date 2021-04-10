@@ -57,18 +57,23 @@ Copy `example.env` to `.env` and fill it with your credentials.
 | Command       | Description                                   |
 | ------------- | --------------------------------------------- |
 | /allow_all    | all users can use user commands in the group  |
-| /allow_admins | telegram group admins can use user commands   |
+| /allow_admin | telegram group admins can use user commands   |
 | /disallow     | only bot admins can use user command          |
 ### Global Administrators Commands
 | Command                | Description                             |
 | ---------------------- | --------------------------------------- |
 | /admin @usertag        | user is added as bot admin on the group |
 | /remove_admin @usertag | remove the user from the bot group admin|
+| /ban @usertag          | Ban the user from the bot in this group |
+| /unban @usertag        | unBan the user from  in this group      |
+
 ### SuperUser Commads
 | Command                        | Description                      |
 | ------------------------------ | -------------------------------- |
 | /global_admin @usertag         | user is added as bot global admin|
-| /remove_global_admin @usertag | remove the user as global admin  |
+| /remove_global_admin @usertag  | remove the user as global admin  |
+| /global_ban @usertag                  | Ban the user from the bot        |
+| /global_unban @usertag                | unBan the user from the bot      |
 
 ## License
 

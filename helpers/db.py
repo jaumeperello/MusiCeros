@@ -11,6 +11,8 @@ class AdminType(Enum):
     FULL = 1
     GROUP = 2
     NOT_ADMIN = 100
+    BAN = 200
+    GBAN = 400
 
 
 class DBHandler:
