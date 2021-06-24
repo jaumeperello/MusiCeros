@@ -6,25 +6,24 @@ from helpers.functions import convert_seconds, generate_cover
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import os
 import logging
-from Python_ARQ import ARQ
+from youtubesearchpython import VideosSearch
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-
-# Arq Client
-arq = ARQ("https://thearq.tech")
 
 
 # search on youtube to play the song
 async def ytplay(client, chat_id, requested_by, query):
     m = await client.send_message(chat_id, f"__**Searching for {query} on YouTube.**__", disable_web_page_preview=True)
     try:
-        results = await arq.youtube(query, 6)
+        videosSearch = VideosSearch(query[0], limit=6)
+        results = videosSearch.result()['result']
+        # results = await arq.youtube(query[0], 6)
         text = "**Results:**\n\n"
         songbt = []
         for num in range(0, len(results) - 1):
-            title = results[num].title
-            duration = results[num].duration
-            views = results[num].views
-            url = f"{results[num].id}"
+            title = results[num]['title']
+            duration = results[num]['duration']
+            views = results[num]['viewCount']['short']
+            url = f"{results[num]['id']}"
             text += f"  __{num + 1}.__ **{title}** {duration} views: {views}\n"
             songbt.append(InlineKeyboardButton(f"{num + 1}", f'choose_{requested_by}_{url}'))
         await m.edit(text, reply_markup=InlineKeyboardMarkup([songbt]))

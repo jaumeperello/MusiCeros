@@ -74,7 +74,7 @@ class DBHandler:
             'admin': 0,
             'all': 0,
         }
-        sql = f'SELECT allow_admins, allow_all FROM groups WHERE group_id={group_id}'
+        sql = f'SELECT allow_admins, allow_all FROM `groups` WHERE group_id={group_id}'
         logging.info(sql)
         self._get_cursor()
         self._cur.execute(sql)

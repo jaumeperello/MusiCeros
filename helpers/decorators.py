@@ -7,6 +7,7 @@ from helpers.admins import get_administrators
 from config import SUDO_USERS
 from helpers.db import DBHandler, AdminType
 from pyrogram.types import CallbackQuery
+import logging
 
 dbhd = DBHandler()
 
@@ -16,7 +17,7 @@ def errors(func: Callable) -> Callable:
         try:
             return await func(client, message)
         except Exception as e:
-            await message.reply(f"❗️ {type(e).__name__}: {e}")
+            logging.info(f"❗️ {type(e).__name__}: {e}")
 
     return decorator
 

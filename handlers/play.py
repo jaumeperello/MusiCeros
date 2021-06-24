@@ -11,14 +11,9 @@ from helpers.errors import DurationLimitError
 from helpers.filters import command, other_filters
 from helpers.decorators import errors, authorized_users_only
 from helpers.player import ytplay, play_song
-from Python_ARQ import ARQ
 import logging
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-
-
-# Arq Client
-arq = ARQ("https://thearq.tech")
 
 
 ydl_opts = {
