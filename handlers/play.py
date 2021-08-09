@@ -6,7 +6,7 @@ from pyrogram.types import Message, Voice
 import converter
 from youtube_dl import YoutubeDL
 import asyncio
-from config import DURATION_LIMIT
+from config import DURATION_LIMIT, BOT_USERNAME
 from helpers.errors import DurationLimitError
 from helpers.filters import command, other_filters
 from helpers.decorators import errors, authorized_users_only
@@ -26,7 +26,7 @@ ydl_opts = {
 ydl = YoutubeDL(ydl_opts)
 
 
-@Client.on_message(command("play") & other_filters)
+@Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def play(client, message: Message):
