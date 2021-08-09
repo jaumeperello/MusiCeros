@@ -21,7 +21,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                f'Hi there, This is {BOT_NAME} assistant service, please do not spam here.\n\n if u have any doubt and problem then contact in {SUPPORT_GROUP} If u want to play music in your group then message {BOT_USERNAME}',
+                f'● Hi there, This is **{BOT_NAME}** assistant service, please do not spam here.\n● if u have any doubt or problem then contact in **{SUPPORT_GROUP}** \n● If u want to play music in your group then message **{BOT_USERNAME}**',
             )
             return
 
@@ -42,6 +42,8 @@ async def bye(client: Client, message: Message):
             PMSET = None
             await message.reply_text("Pmpermit turned off")
             return
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 @USER.on_message(filters.text & filters.private & filters.me)        
 async def autopmPermiat(client: USER, message: Message):
@@ -50,7 +52,10 @@ async def autopmPermiat(client: USER, message: Message):
         pchats.append(chat_id)
         await message.reply_text("Approoved to PM due to outgoing messages")
         return
-    message.continue_propagation()    
+    message.continue_propagation()  
+    
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     
 @USER.on_message(filters.command("a", [".", ""]) & filters.me & filters.private)
 async def pmPermiat(client: USER, message: Message):
@@ -60,7 +65,10 @@ async def pmPermiat(client: USER, message: Message):
         await message.reply_text("Approoved to PM")
         return
     message.continue_propagation()    
+
     
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 @USER.on_message(filters.command("da", [".", ""]) & filters.me & filters.private)
 async def rmpmPermiat(client: USER, message: Message):
@@ -70,3 +78,6 @@ async def rmpmPermiat(client: USER, message: Message):
         await message.reply_text("Dispprooved to PM")
         return
     message.continue_propagation()   
+    
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
