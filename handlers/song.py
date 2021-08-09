@@ -8,10 +8,11 @@ from youtube_search import YoutubeSearch
 from helpers.filters import command, other_filters
 from helpers.decorators import errors
 
+from config import BOT_USERNAME, BOT_NAME
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-@Client.on_message(command("song"))
+@Client.on_message(command(["song", f"song@{BOT_USERNAME}]))
 @errors
 async def song(client, message: Message):
     query = ''
@@ -61,7 +62,7 @@ async def song(client, message: Message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'✦[{title[:35]}]({link}) | [Ani-Music](https://t.me/animusicvc_bot) ✦  '
+        rep = f'✦[{title[:35]}]({link}) | [{BOT_NAME}](https://t.me/{BOT_USERNAME}) ✦  '
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
