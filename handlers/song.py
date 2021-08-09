@@ -12,7 +12,7 @@ from config import BOT_USERNAME, BOT_NAME
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-@Client.on_message(command(["song", f"song@{BOT_USERNAME}]))
+@Client.on_message(command(["song", f"song@{BOT_USERNAME}]"))
 @errors
 async def song(client, message: Message):
     query = ''
