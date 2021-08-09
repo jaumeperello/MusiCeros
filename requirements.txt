@@ -38,3 +38,5 @@ yarl==1.6.3
 youtube-dl==2021.4.1
 youtube-search-python==1.4.3
 zipp==3.4.1
+psutil
+youtube_search
