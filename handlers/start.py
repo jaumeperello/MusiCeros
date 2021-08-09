@@ -5,8 +5,8 @@ from helpers.filters import command
 from config import BOT_USERNAME
 # from helpers.decorators import authorized_users_only
 
-
-@Client.on_message(command(["start", f"start@{BOT_USERNAME}]))
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@Client.on_message(command(["start", f"start@{BOT_USERNAME}"]))
 async def start(_, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
@@ -24,3 +24,4 @@ Use the buttons below to know more about me.""",
             ]
         )
     )
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
