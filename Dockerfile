@@ -8,4 +8,5 @@ WORKDIR /app/
 COPY . /app/
 ENV URLDB="mysql-url"
 RUN pip3 install -U -r requirements.txt
+RUN pip3 install -U pytgcalls[pyrogram]
 CMD python3 main.py
