@@ -10,6 +10,7 @@ PMSET =True
 pchats = []
 PMPERMIT= "ENABLE"
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
 async def pmPermit(client: USER, message: Message):
@@ -24,6 +25,7 @@ async def pmPermit(client: USER, message: Message):
             )
             return
 
+ #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
 
 @Client.on_message(filters.command(["pmpermit"]))
