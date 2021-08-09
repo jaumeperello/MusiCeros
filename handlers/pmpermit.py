@@ -20,7 +20,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                "Hi there, This is "{BOT_NAME}" assistant service, please don't spam here.\n\n if u have any doubt and problem then contact in "{SUPPORT_GROUP}" If u want to play music in your group then message "{BOT_USERNAME}"",
+                f'Hi there, This is {BOT_NAME} assistant service, please do not spam here.\n\n if u have any doubt and problem then contact in {SUPPORT_GROUP} If u want to play music in your group then message {BOT_USERNAME}',
             )
             return
 
