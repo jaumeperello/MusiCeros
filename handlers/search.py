@@ -14,6 +14,7 @@ import pyrogram
 
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @app.on_message(pyrogram.filters.command(["search", f"search@{BOT_USERNAME}"]))
 async def search(_, message: Message):
@@ -36,3 +37,5 @@ async def search(_, message: Message):
         await m.edit(text, disable_web_page_preview=True)
     except Exception as e:
         await message.reply_text(str(e))
+        
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
