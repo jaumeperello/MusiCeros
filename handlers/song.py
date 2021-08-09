@@ -69,7 +69,7 @@ async def song(client, message: Message):
         await  message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, thumb=thumb_name)
         await m.delete()
     except Exception as e:
-        await m.edit(f"❌ Error!! \n\n{e}")
+        await m.edit(f"❗️ Error!! \n\n{e}")
     try:
         os.remove(audio_file)
         os.remove(thumb_name)
