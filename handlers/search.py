@@ -15,7 +15,7 @@ import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
-@app.on_message(pyrogram.filters.command(["search"]))
+@app.on_message(pyrogram.filters.command(["search", f"search@{BOT_USERNAME}"]))
 async def search(_, message: Message):
     try:
         if len(message.command) < 2:
