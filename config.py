@@ -24,3 +24,4 @@ DB_PASS = getenv("DB_PASS")
 #extra things
 
 BOT_USERNAME = "[bot username without @]"
+BOT_NAME = "[bot name]"
