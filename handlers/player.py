@@ -8,9 +8,10 @@ import asyncio
 from helpers.filters import command
 from helpers.decorators import errors, authorized_users_only
 from helpers.player import play_song
+from config import  BOT_USERNAME
 
 
-@Client.on_message(command(["pause", "p"]))
+@Client.on_message(command(["pause", f"pause@{BOT_USERNAME}"]))
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
@@ -20,7 +21,7 @@ async def pause(_, message: Message):
         await message.reply_text("❗️ Nothing is playing")
 
 
-@Client.on_message(command(["resume", "r"]))
+@Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]))
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
@@ -30,7 +31,7 @@ async def resume(_, message: Message):
         await message.reply_text("❗️ Nothing is paused")
 
 
-@Client.on_message(command(["stop", "s"]))
+@Client.on_message(command(["stop", f"stop@{BOT_USERNAME}"]))
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
@@ -46,7 +47,7 @@ async def stop(_, message: Message):
         await message.reply_text("✅ Cleared the queue and left the call")
 
 
-@Client.on_message(command(["skip", "f"]))
+@Client.on_message(command(["skip", f"skip@{BOT_USERNAME}"]))
 @errors
 @authorized_users_only
 async def skip(client, message: Message):
@@ -79,7 +80,7 @@ async def skip(client, message: Message):
         await sk.delete()
 
 
-@Client.on_message(command(["mute", "m"]))
+@Client.on_message(command(["mute", f"mute@{BOT_USERNAME}"]))
 @errors
 @authorized_users_only
 async def mute(_, message: Message):
@@ -93,7 +94,7 @@ async def mute(_, message: Message):
         await message.reply_text("❗️ Not in voice chat")
 
 
-@Client.on_message(command(["unmute", "u"]))
+@Client.on_message(command(["unmute", f"unmute@{BOT_USERNAME}"]))
 @errors
 @authorized_users_only
 async def unmute(_, message: Message):
@@ -107,7 +108,7 @@ async def unmute(_, message: Message):
         await message.reply_text("❗️ Not in voice chat")
 
 
-@Client.on_message(command(["list", "l"]))
+@Client.on_message(command(["player", f"player@{BOT_USERNAME}"]))
 @authorized_users_only
 async def listq(_, message: Message):
     if message.chat.id not in callsmusic.active_chats:
