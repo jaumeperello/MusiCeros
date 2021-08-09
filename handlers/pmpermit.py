@@ -1,6 +1,6 @@
 from pyrogram import Client
 import asyncio
-from config import SUDO_USERS
+from config import SUDO_USERS, BOT_NAME, BOT_USERNAME, SUPPORT_GROUP
 from pyrogram import filters
 from pyrogram.types import Message
 from callsmusic.callsmusic import client as USER
@@ -20,7 +20,7 @@ async def pmPermit(client: USER, message: Message):
                 return
             await USER.send_message(
                 message.chat.id,
-                "Hi there, This is Ani-Music assistant service, please don't spam here.\n\n if u have any doubt and problem then contact @sanjitsinha. If u want to play music in your group then message @animusicvc_bot",
+                "Hi there, This is "{BOT_NAME}" assistant service, please don't spam here.\n\n if u have any doubt and problem then contact in "{SUPPORT_GROUP}" If u want to play music in your group then message "{BOT_USERNAME}"",
             )
             return
 
