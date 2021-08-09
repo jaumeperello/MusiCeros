@@ -2,6 +2,7 @@ from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 from helpers.filters import command
+from config import BOT_USERNAME
 # from helpers.decorators import authorized_users_only
 
 
@@ -17,7 +18,7 @@ Use the buttons below to know more about me.""",
             [
                 [
                     InlineKeyboardButton(
-                        "⚒ Source code", url="to be updated"
+                        "⚒ Button one", url="to be updated"
                     )
                 ],
             ]
